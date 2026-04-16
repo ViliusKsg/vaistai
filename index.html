@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaistų informacija</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>💊 Vaistų informacija</h1>
+      <button id="themeToggle" class="btn-icon" title="Keisti temą">🌙</button>
+    </header>
+
+    <!-- VAISTŲ ĮVEDIMAS -->
+    <section class="inputs-section">
+      <div class="drug-inputs">
+        <div class="input-group">
+          <label>Vaistas 1</label>
+          <input type="text" id="drug1" placeholder="pvz. Ibuprofen, Nurofen..." autocomplete="off">
+        </div>
+        <div class="input-group">
+          <label>Vaistas 2 <span class="optional">(neprivaloma)</span></label>
+          <input type="text" id="drug2" placeholder="pvz. Paracetamol..." autocomplete="off">
+        </div>
+        <div class="input-group">
+          <label>Vaistas 3 <span class="optional">(neprivaloma)</span></label>
+          <input type="text" id="drug3" placeholder="pvz. Aspirin..." autocomplete="off">
+        </div>
+      </div>
+
+      <!-- PAPILDOMAS KLAUSIMAS -->
+      <div class="input-group extra-question">
+        <label>Papildomas klausimas <span class="optional">(neprivaloma)</span></label>
+        <input type="text" id="extraQuestion" placeholder="pvz. Ar galima vartoti tuščiu skrandžiu?">
+      </div>
+    </section>
+
+    <!-- PRESETAI -->
+    <section class="presets-section">
+      <div class="presets-header">
+        <span>Rodyti informaciją:</span>
+        <button class="btn-small" id="selectAll">Visi</button>
+        <button class="btn-small" id="selectNone">Nė vienas</button>
+      </div>
+      <div class="presets-grid">
+        <label class="preset-toggle active">
+          <input type="checkbox" name="preset" value="vartojimas" checked>
+          <span>💊 Vartojimas ir dozės</span>
+        </label>
+        <label class="preset-toggle active">
+          <input type="checkbox" name="preset" value="salutiniai" checked>
+          <span>⚠️ Svarbiausi šalutiniai poveikiai</span>
+        </label>
+        <label class="preset-toggle active">
+          <input type="checkbox" name="preset" value="kontraindikacijos" checked>
+          <span>🚫 Kontraindikacijos</span>
+        </label>
+        <label class="preset-toggle active">
+          <input type="checkbox" name="preset" value="vaikai" checked>
+          <span>👶 Dozės vaikams</span>
+        </label>
+        <label class="preset-toggle active">
+          <input type="checkbox" name="preset" value="laikymas" checked>
+          <span>🌡️ Laikymo sąlygos</span>
+        </label>
+        <label class="preset-toggle active">
+          <input type="checkbox" name="preset" value="terminas" checked>
+          <span>📅 Tinkamumo terminas</span>
+        </label>
+        <label class="preset-toggle active">
+          <input type="checkbox" name="preset" value="suderinamas" checked>
+          <span>🔗 Suderinamumas</span>
+        </label>
+        <label class="preset-toggle">
+          <input type="checkbox" name="preset" value="nescumas">
+          <span>🤰 Nėštumas / maitinimas</span>
+        </label>
+        <label class="preset-toggle">
+          <input type="checkbox" name="preset" value="alkoholis">
+          <span>🍷 Alkoholis</span>
+        </label>
+        <label class="preset-toggle">
+          <input type="checkbox" name="preset" value="vairavimas">
+          <span>🚗 Vairavimas</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- IEŠKOTI MYGTUKAS -->
+    <div class="search-bar">
+      <button id="searchBtn" class="btn-primary">🔍 Gauti informaciją</button>
+      <button id="clearBtn" class="btn-secondary">✕ Išvalyti</button>
+    </div>
+
+    <!-- REZULTATAI -->
+    <section id="results" class="results-section hidden">
+
+      <!-- KROVIMAS -->
+      <div id="loadingState" class="loading-state hidden">
+        <div class="spinner"></div>
+        <p id="loadingText">Ieškoma informacijos...</p>
+      </div>
+
+      <!-- KLAIDA -->
+      <div id="errorState" class="error-state hidden">
+        <p id="errorText"></p>
+      </div>
+
+      <!-- REZULTATŲ KORTELĖS -->
+      <div id="drugCards" class="drug-cards"></div>
+
+      <!-- SUDERINAMUMO SEKCIJA -->
+      <div id="compatibilityCard" class="compat-card hidden">
+        <h2>🔗 Vaistų suderinamumas</h2>
+        <div id="compatibilityContent"></div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
